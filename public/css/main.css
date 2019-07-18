@@ -1,0 +1,228 @@
+@import "font-awesome-icons.css"; /* import font awesome icons */
+@import "components.css"; /* import form components */
+
+/*
+
+colors:
+green: #95C2B0;
+orange: #F3C1A2;
+	
+*/
+
+/* 
+////////////////////////////////////////////////////////////////////////////
+	presets
+////////////////////////////////////////////////////////////////////////////// 
+*/
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+    margin: 0;
+   padding: 0;
+  }
+
+html,body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+	font-family: 'PT Sans';
+	font-size: 10px;
+	line-height: 12px;
+	display: flex;
+	justify-content: center;
+ 
+}
+::selection {
+	background-color: #87B1AE;
+}
+::-moz-selection {
+	background-color: #87B1AE;
+
+	
+}
+/* 
+////////////////////////////////////////////////////////////////////////////
+	fonts
+////////////////////////////////////////////////////////////////////////////// 
+*/
+
+h1,h2,h3,h4 {
+	font-family: 'PT Sans Narrow';
+	font-weight: 700;
+	letter-spacing: 1px;
+
+}
+
+h2 {
+	font-size: 2.6rem;
+	line-height: 3rem;
+}
+
+h3 {
+	font-size: 2.6rem;
+	line-height: 3.6rem;
+	padding: 0 0 5px;
+  }
+
+a {
+	text-decoration: none;
+}
+
+p, ul {
+	font-size: 1.2rem;
+	line-height: 1.4rem;
+}
+ 
+
+ul {
+	margin: 0 0 0 1.6rem;
+}
+
+ 
+
+aside p {
+	font-size: 1rem;	
+}
+
+.note-datum, .importance-rating  {
+	font-size: 1rem;
+	font-style: italic;
+}
+
+.done {
+	color: #87b1ae;	
+}
+/* 
+////////////////////////////////////////////////////////////////////////////
+	construct // 
+////////////////////////////////////////////////////////////////////////////// 
+*/
+
+#wrapper {
+		display: -ms-grid;
+ 		display: grid;
+		min-height: 100vh;
+		height: 100%;
+ 		grid-template-columns: 25% 50% 25% ;
+  		grid-template-rows: 10em 20em auto 10em;
+   	 	grid-template-areas:
+			"header header header header"
+			"sub-header sub-header sub-header sub-header"
+			"aside main-content main-content main-content"
+			"footer footer footer footer"
+			;
+  		
+  		}
+
+header, #sub-header, aside {
+	padding: 25px;
+
+}
+
+header {
+	grid-area: header;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #fff;
+ 
+}
+
+#sub-header {
+	grid-area: sub-header;
+	border-bottom: 1px solid #fff;
+ }
+
+section#main-content { 
+	display: flex;
+	grid-area: main-content;
+	justify-content: flex-start;
+ 	
+}
+
+aside {
+	grid-area: aside;
+ 	
+}
+
+footer {
+	grid-area: footer;
+ 	
+}
+
+#sub-header-btn-wrap {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin: 20px 0 0 0;
+ }
+
+article.note-wrap {
+ 	width: 100%;
+	padding: 2em;
+
+}
+
+article.note-wrap .note { 
+  	padding: 15px;
+ 	background-color: #fff;
+	border-radius: 10px 10px 10px 10px;
+	
+}
+ 
+
+/* 
+////////////////////////////////////////////////////////////////////////////
+	style A
+////////////////////////////////////////////////////////////////////////////// 
+*/
+body.styleA #wrapper {
+	width: 120em;
+	background-color: #95C2B0;
+}
+
+body.styleA section#main-content { 
+ 	 flex-flow: column wrap;
+ 	 align-items: flex-start;
+}
+
+body.styleA article.note-wrap { 
+	width: 100%;
+
+ }
+ body.styleA .note {
+	border: 1px solid #F3C1A2;
+	 
+ }
+
+/* 
+////////////////////////////////////////////////////////////////////////////
+	style B
+////////////////////////////////////////////////////////////////////////////// 
+*/
+
+body.styleB #wrapper {
+	width: 100%;
+	background-color: #F3C1A2;
+}
+
+body.styleB section#main-content { 
+ 	 flex-flow: row wrap;
+ 	 align-items: inherit;	
+}
+
+body.styleB article.note-wrap { 
+	width: 50%;
+
+ }
+ 
+  body.styleB .note {
+	border: 1px solid #87b1ae;
+	height: 100%;
+	 
+ }
+ 

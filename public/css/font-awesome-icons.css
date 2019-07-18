@@ -1,0 +1,58 @@
+/* 
+////////////////////////////////////////////////////////////////////////////
+	font awesome icons
+////////////////////////////////////////////////////////////////////////////// 
+*/
+
+
+.fa-exclamation-circle {
+	
+	font-size: 28px;
+
+}
+
+.fa-check {
+	color: #87b1ae;
+}
+ 
+.fa-calendar-alt {
+	top: 10px;
+	position: relative;
+	left: 10px;
+	cursor: pointer;
+}
+
+#importance {
+	width: 165px;
+	margin: 0 0 20px 0;
+	overflow: auto;
+}
+
+#importance .fa-exclamation-circle {
+	position:relative;
+	float: right;
+	margin: 5px 5px 0 0 ;
+}
+
+ #importance > .fa-exclamation-circle:hover {
+	cursor: pointer;
+	color: #CE1C1A;
+	
+}
+
+.fa-exclamation-circle-active {
+		 color: #CE1C1A ;
+
+}
+
+ #importance > .fa-exclamation-circle:hover ~ .fa-exclamation-circle { 
+	 color: #CE1C1A;
+	 
+ }
+ 
+  #importance > .fa-exclamation-circle-active ~ .fa-exclamation-circle { 
+	 color: #CE1C1A ;
+	 
+ }
+ 
+ 

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1,minimal-ui">
+    <meta name="keywords" content="">
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="language" content="de" />
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="author" content="" />
+    <meta name="publisher" content="" />
+    <meta name="copyright" content="" />
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+    <meta name="audience" content="all" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,900' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico?v=2">
+    <title>CAS Web Project 1 | Home</title>
+
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <script src="js/libs/handlebars.runtime-v4.0.11.js"></script>
+    <script src="js/libs/jquery-2.1.4.min.js"></script>
+
+    <script id="notes-template" type="text/x-handlebars-template">
+
+        <article class="note-wrap">
+            <div class="note">
+                <p class="note-datum">Zu erledigen bis am: {{noteDate}}</p>
+                <p class="importance-rating">Priorität: {{noteImportance}} {{{status icon=noteFinished}}}</p>
+                <h3 class="note-title" data-name="title">{{noteTitle}}</h3>
+                <p>{{{noteText}}}</p><a class="btn-note-edit" href="/edit-notes?note={{_id}}" type="button" aria-label="button" name="new" role="button">Bearbeiten</a>
+            </div><!-- .note -->
+        </article>
+
+    </script>
+</head>
+
+<body class="">
+<div id="wrapper">
+
+
+    <header role="banner">
+        <a class="btn" href="newNote" type="button" aria-label="button" name="new" role="button">Neuer Eintrag</a>
+        <select autocomplete="off" id="style-switcher" aria-label="select fas fa-angle-down" name="style-switcher">
+            <option value="styleA" selected="selected">Style A</option>
+            <option value="styleB" >Style B</option>
+        </select>
+
+    </header>
+    <div id="sub-header" role="heading">
+        <h2>Sortieren nach:</h2>
+        <div id="sub-header-btn-wrap">
+            <a class="btn btn-todo active" data-btn="sort" href="#" type="button" aria-label="button" name="sortByDeadline" role="button">Zu erledigen bis<i class="fas fa-clock"></i></a>
+            <a class="btn btn-create" data-btn="sort" href="#" type="button" aria-label="button" name="sortByCreationDate" role="button">Erstellung<i class="fas fa-edit"></i></a>
+            <a class="btn btn-importance" data-btn="sort" href="#" type="button" aria-label="button" name="sortByImportance" role="button">Wichtigkeit<i class="fas fa-exclamation-circle circle"></i></a>
+            <a class="btn btn-completed" data-btn="sort" href="#" type="button" aria-label="button" name="sortByCompleted" role="button">Abgeschlossen<i class="fas fa-calendar-check"></i></a>
+        </div><!-- #sub-header-btn-wrap -->
+    </div><!-- #sub-header -->
+    <section id="main-content" class="note-listing" role="main">
+
+
+
+    </section><!-- #main-content -->
+    <aside role="complementary">
+
+        <a class="btn btn-only-completed" data-btn="sort" href="#" type="button" aria-label="button" name="sortByOnlyCompleted" role="button">Nur Abgeschlossene Notizen anzeigen</a>
+
+
+    </aside>
+    <footer role="contentinfo"></footer>
+
+</div><!-- #wrapper -->
+
+<script src="js/utils/handlebars-helper.js"></script>
+
+<script type="module" src="js/controller/indexController.js"></script>
+<script type="module" src="js/controller/styleController.js"></script>
+
+
+
+</body>
+</html>
