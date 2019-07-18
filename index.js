@@ -60,6 +60,7 @@ app.use(errorHandler);
 
 
 
-const hostname = '127.0.0.1';
-const port = 3001;
+// const hostname = '127.0.0.1';
+   const hostname= 'http://localhost:'
+const port = process.env.PORT || 8080;
 app.listen(port, hostname, () => {  console.log(`Server running at http://${hostname}:${port}/`); });
