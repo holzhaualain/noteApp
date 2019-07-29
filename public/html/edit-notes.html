@@ -26,6 +26,8 @@
     <title>CAS Web Project 1 | Notiz bearbeiten</title>
 
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/dialog.css" rel="stylesheet" type="text/css">
+
     <script src="js/libs/handlebars.runtime-v4.0.11.js"></script>
     <script src="js/libs/jquery-2.1.4.min.js"></script>
 
@@ -87,9 +89,34 @@
 
 
     </aside>
-    <footer></footer>
+    <footer>
 
-</div><!-- #wrapper -->
+
+        <!-- confirmBox modal -->
+        <div class="dialog-bg"></div>
+            <div class="dialog" role="dialog">
+                <div class="close-btn" role="button" aria-label="schliessen" title="schliessen">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                </div>
+            <span class="offer-subtitle">Tierpark-Restaurant Dählhölzli, Bern</span>
+            <h2 class="dialog-title"></h2>
+            <p class="dialog-text"></p>
+            <div class="confirm-btn-wrap hidden">
+             <p class="confirmButtons">
+                <a class="btn btn-confirm btn-delete-confirm" data-btn="confirm" href="#"type="button" aria-label="button" name="btn-delete-confirm" role="button">Ja<i class="fas fa-check"></i></a>
+                <a class="btn btn-confirm btn-delete-ignore" data-btn="confirm" href="#" type="button" aria-label="button" name="ignore-btn" role="button">Nein<i class="fas fa-remove"></i></a>
+             </p>
+            </div>
+        </div>
+        <!--  end confirmBox modal -->
+
+
+            </footer>
+
+        </div><!-- #wrapper -->
+<script type="text/javascript" src="js/controller/dialogController.js"></script>
+
 <script type="module" src="js/controller/noteEditController.js"></script>
 <script type="module" src="js/controller/styleController.js"></script>
 

@@ -5,6 +5,7 @@
     const deleteBtn = document.getElementById('delete-note');
     const newNoteBtn = document.getElementsByClassName('btn-editpage-new')[0];
 
+
     let noteContent = {};
     let importance = 1;
     let currNoteID = "";
@@ -58,6 +59,7 @@
             dataType: 'json',
 
             success: function (data, status) {
+                 console.log(data);
                  displayNoteData(data[0]);
 
               },
@@ -85,7 +87,8 @@
             currNoteID = notesValues._id;
         }
         else{
-            alert(notesValues.message);
+             confirmDialog("Alles klar", notesValues.message, "update");
+
         }
     }
 
@@ -139,6 +142,8 @@
         let noteDate = formValues[2].value;
         id = id.replace(/ /g, "_");
         noteDate = noteDate.replace(/-/g, ".").split(".").reverse().join(".");
+        let noteTimestamp = new Date(noteDate.split(".").reverse().join(".")).getTime();
+        console.log(noteTimestamp);
        editMode === false ?  (metod = 'post', url = '/note/saveNote/') : (metod = 'put', url = '/note/updateNote/');
 
         if (editMode == false) {
@@ -150,6 +155,7 @@
                 "noteDate": noteDate,
                 "noteFinished": formValues[3].checked,
                 "noteCreationDate": noteCreationDate,
+                 "noteTimestamp": noteTimestamp
              };
         }
         else {
@@ -162,18 +168,21 @@
                 "noteDate": noteDate,
                 "noteFinished": formValues[3].checked,
                 "noteCreationDate": noteCreationDate,
+                "noteTimestamp": noteTimestamp,
                 "_id": currNoteID
             };
         }
         if (formValues[0] !== "" && formValues[1] !== "" && noteDate !== "") {
 
             sendNoteToDB(metod,url,noteContent);
+            newNoteBtn.setAttribute("style", "display:block;");
 
         }
 
         else {
 
-            alert("Titel, Notiztext und Datum sind Pflichtfelder.");
+             confirmDialog("Fehlende Pflichtfelder", "Titel, Notiztext und Datum sind Pflichtfelder.", "info");
+
         }
 
     }
@@ -182,27 +191,29 @@
  /////////////////////////////////////////////////////////////////// */
     if (deleteBtn !== null) {
         deleteBtn.addEventListener('click', function () {
-            if (window.confirm("Soll die Notiz wirklich gelöscht werden?")) {
-
-                editMode = false;
-                importance = 1;
-                newNoteBtn.setAttribute("style", "display:hidden;");
-                metod = 'delete';
-                url = '/note/deleteNote/';
-
-                sendNoteToDB(metod,url,{_id:currNoteID});
-
-                document.getElementById(currNoteImportance.id).classList.remove('fa-exclamation-circle-active');
-                document.getElementById("note-edit-title").value = "";
-                document.getElementById("note-edit-text").value = "";
-                document.getElementById("note-edit-date").value = "";
-                document.getElementById("finished").checked = "";
-            }
-
+            confirmDialog('Löschen','Möchten Sie diese Notiz wirklich löschen?', 'confirm' );
 
         });
 
     }
 
+      document.getElementsByClassName('btn-delete-confirm')[0].addEventListener('click',(e)=> {
+               console.log('delete');
+              editMode = false;
+              importance = 1;
+              newNoteBtn.setAttribute("style", "display:hidden;");
+              metod = 'delete';
+              url = '/note/deleteNote/';
+
+              document.getElementById(currNoteImportance.id).classList.remove('fa-exclamation-circle-active');
+              document.getElementById("note-edit-title").value = "";
+              document.getElementById("note-edit-text").value = "";
+              document.getElementById("note-edit-date").value = "";
+              document.getElementById("finished").checked = "";
+               sendNoteToDB(metod,url,{_id:currNoteID});
+    });
+    document.getElementsByClassName('btn-delete-ignore')[0].addEventListener('click',()=> {
+        close();
+    });
 
 })();

@@ -59,12 +59,12 @@ app.use(notFound);
 app.use(errorHandler);
 
 
-const development = '127.0.0.1';
+// const development = '127.0.0.1';
 
  //  const hostname= 'http://localhost:'
 const hostname = '127.0.0.1';
 app.set('port', (process.env.PORT || 5000));
 
-const port = app.get('port');
+const port = '3000';
 
 app.listen(port,  () => {  console.log(`Server running at http://${hostname}:${port}/`); });

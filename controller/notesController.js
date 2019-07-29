@@ -33,5 +33,4 @@ module.exports.deleteNote = async function(req, res)
 {
     res.json((await myNotes.delete(req.body._id)) );
 
-
 }

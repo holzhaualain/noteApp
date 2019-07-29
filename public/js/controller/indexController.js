@@ -56,38 +56,27 @@ const notesSorter = new model.noteSortHandler();
     /////////////////////////////////////////////////////////////////// */
     function swtichSortBtn () {
         let getNotesBy = "";
-
+        console.log( notesData);
         switch(activSortBtn) {
             case "sortByDeadline":
-                getNotesBy = notesSorter.sortByDeadline(notesData);
-
+                getNotesBy = notesSorter.sortData(notesData, "noteTimestamp");
                 break;
 
-            case "sortByCreationDate":
-                getNotesBy = notesSorter.sortByCreationDate(notesData);
+            case "sortByCreationDate"  || "sortByOnlyCompleted" :
+                getNotesBy = notesSorter.sortData(notesData, "noteCreationDate");
                 break;
-
 
             case "sortByImportance":
-                getNotesBy = notesSorter.sortByImportance(notesData);
+                getNotesBy = notesSorter.sortData(notesData, "noteImportance");
                 break;
-
 
             case "sortByCompleted":
-                getNotesBy = notesSorter.sortByCompleted(notesData);
+                getNotesBy = notesSorter.sortData(notesData, "noteFinished");
                 break;
-
-
-            case "sortByOnlyCompleted":
-                getNotesBy = notesSorter.sortByOnlyCompleted(notesData);
-                break;
-
 
             default:
                 getNotesBy = notesSorter.sortByDeadline(notesData);
                 break;
-
-
 
         }
         return getNotesBy;
