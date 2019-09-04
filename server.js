@@ -61,10 +61,10 @@ app.use(errorHandler);
 
 // const development = '127.0.0.1';
 
- const hostname= 'http://localhost:'
+ // const hostname= 'http://localhost:'
 // const hostname = '127.0.0.1';
-app.set('port', (process.env.PORT || 5000));
+const port = process.env.PORT || 8080;
 
-const port = '3000';
-
+// const port = '3000';
+const hostname = 'https://mynewnotesapp.herokuapp.com/';
 app.listen(port,  () => {  console.log(`Server running at http://${hostname}:${port}/`); });
