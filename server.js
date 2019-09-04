@@ -61,8 +61,8 @@ app.use(errorHandler);
 
 // const development = '127.0.0.1';
 
- //  const hostname= 'http://localhost:'
-const hostname = '127.0.0.1';
+ const hostname= 'http://localhost:'
+// const hostname = '127.0.0.1';
 app.set('port', (process.env.PORT || 5000));
 
 const port = '3000';
