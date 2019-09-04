@@ -143,7 +143,6 @@
         id = id.replace(/ /g, "_");
         noteDate = noteDate.replace(/-/g, ".").split(".").reverse().join(".");
         let noteTimestamp = new Date(noteDate.split(".").reverse().join(".")).getTime();
-        console.log(noteTimestamp);
        editMode === false ?  (metod = 'post', url = '/note/saveNote/') : (metod = 'put', url = '/note/updateNote/');
 
         if (editMode == false) {

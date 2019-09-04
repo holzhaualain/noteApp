@@ -75,7 +75,7 @@ const notesSorter = new model.noteSortHandler();
                 break;
 
             default:
-                getNotesBy = notesSorter.sortByDeadline(notesData);
+                getNotesBy = notesSorter.sortData(notesData);
                 break;
 
         }
